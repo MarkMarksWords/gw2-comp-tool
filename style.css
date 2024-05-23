@@ -1,0 +1,67 @@
+body {
+    vertical-align: middle;
+}
+
+
+table {
+  /*width: 90%;*/
+}
+td {
+  width: 20%;
+  position: relative;
+}
+
+
+.spec-container {
+  aspect-ratio: 1 / 1 ;
+  background: lightgray;
+    height: 8em;
+  width: 12em;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+.person-name {
+  text-align: center;
+}
+
+.spec-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 48px;
+
+}
+
+.spec-type {
+  text-align: center;
+  /*grid-column: 1;*/
+  /*grid-row: 0.2;*/
+}
+
+.selected-player{
+  outline: 5px solid black;
+  outline-offset: -5px;
+}
+
+
+.cele > .spec-image {
+  /*box-shadow: inset 0 0 0 99999px rgba(255, 149, 206, 0.5);*/
+  /*background-color: rgba(255, 149, 206, 1);*/
+  /*background-blend-mode: multiply;*/
+}
+
+
+#link-text {
+  height: auto;
+  width: max-content;
+}
+
+html *
+{
+  font-family: Roboto, serif;
+}
+
+     /*<div class="person-name">Firebrand</div>*/
+     /*<div class="spec-image">imagebox</div>*/
+     /* <div class="spec-type">cele/power/dps</div>*/

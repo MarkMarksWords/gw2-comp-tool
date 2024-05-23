@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="./fonts.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./auto_spec_styles.css">
+    <title>Title</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<table id="comp-table">
+  <caption>INSERT COMP NAME HERE</caption>
+<!--  <tr>-->
+<!--    <td><div class="spec-container fb cele">-->
+<!--      <div class="person-name">Spec Name</div>-->
+<!--      <div class="spec-image"></div>-->
+<!--      <div class="spec-type">heal/cele/power</div>-->
+<!--    </div>-->
+<!--    </td>-->
+<!--    <td><div class="spec-container">-->
+<!--      <div class="person-name">Spec Name</div>-->
+<!--      <div class="spec-image"></div>-->
+<!--      <div class="spec-type">heal/cele/power</div>-->
+<!--    </div>-->
+<!--    </td>-->
+<!--    </td>    <td><div class="spec-container rene cele">-->
+<!--    <div class="person-name">Spec Name</div>-->
+<!--    <div class="spec-image"></div>-->
+<!--    <div class="spec-type">heal/cele/power</div>-->
+<!--  </div>-->
+<!--  </td>-->
+<!--    <td><div class="spec-container">-->
+<!--      <div class="person-name">Spec Name</div>-->
+<!--      <div class="spec-image"></div>-->
+<!--      <div class="spec-type">heal/cele/power</div>-->
+<!--    </div>-->
+<!--    </td>-->
+<!--<td><div class="spec-container">-->
+<!--      <div class="person-name">Spec Name</div>-->
+<!--      <div class="spec-image"></div>-->
+<!--      <div class="spec-type">heal/cele/power</div>-->
+<!--    </div>-->
+<!--  </tr>-->
+</table>
+
+<button class="" type="button" onClick="addParty()">Add party</button>
+
+<!--add icons-->
+<select name="spec" id="select-spec" onchange="cellSpecChanged()">
+  <option value="noselection">None</option>
+  <option value="guard">Guardian</option>
+  <option value="dh">Dragonhunter</option>
+  <option value="fb">Firebrand</option>
+  <option value="wb">Willbender</option>
+  <option value="rev">Revenant</option>
+  <option value="herald">Herald</option>
+  <option value="rene">Renegade</option>
+  <option value="vindi">Vindicator</option>
+  <option value="warr">Warrior</option>
+  <option value="bers">Berserker</option>
+  <option value="spb">Spellbreaker</option>
+  <option value="blade">Bladesworn</option>
+  <option value="engi">Engineer</option>
+  <option value="scrapper">Scrapper</option>
+  <option value="holo">Holosmith</option>
+  <option value="mech">Mechanist</option>
+  <option value="ranger">Ranger</option>
+  <option value="druid">Druid</option>
+  <option value="slb">Soulbeast</option>
+  <option value="untamed">Untamed</option>
+  <option value="thief">Thief</option>
+  <option value="dd">Daredevil</option>
+  <option value="de">Deadeye</option>
+  <option value="specter">Specter</option>
+  <option value="ele">Elementalist</option>
+  <option value="tempest">Tempest</option>
+  <option value="weaver">Weaver</option>
+  <option value="cata">Catalyst</option>
+  <option value="mesmer">Mesmer</option>
+  <option value="chrono">Chronomancer</option>
+  <option value="mirage">Mirage</option>
+  <option value="virt">Virtuoso</option>
+  <option value="necro">Necromancer</option>
+  <option value="reaper">Reaper</option>
+  <option value="scg">Scourge</option>
+  <option value="harb">Harbinger</option>
+
+</select>
+
+<button class="" type="button" onClick="makeShareable()">Get shareable link</button>
+<textarea contenteditable="false" id="link-text"></textarea>
+<!--boon list -->
+
+
+
+<script>
+  // should add some structs or smth
+  // mappings list?
+  // var specs = ["fb", "rene", "holo"]
+  var specs = ["guard", "dh", "fb", "wb", "rev", "herald", "rene", "vindi", "warr", "bers",
+            "spb", "blade", "engi", "scrapper", "holo", "mech", "ranger", "druid", "slb",
+            "untamed", "thief", "dd", "de", "specter", "ele", "tempest", "weaver",
+            "cata", "mesmer", "chrono", "mirage", "virt", "necro", "reaper", "scg", "harb"];
+
+  var selected_cell = null;
+
+  var spec_dropdown =  document.getElementById("select-spec");
+  function cellSpecChanged(){
+    if (selected_cell === null){
+      return;
+    }
+    var new_spec = spec_dropdown.value;
+    for (var i=0; i < specs.length; i++){
+      selected_cell.classList.remove(specs[i]);
+    }
+    if (new_spec !== "noselection"){
+      selected_cell.classList.add(new_spec);
+    }
+  }
+  function getCellRow(td){
+    let j;
+// walk up chain until find spec container
+    if (td.target.tagName !== "DIV"){
+      return;
+    }
+    var target = td.target;
+    while (!target.classList.contains("spec-container")){
+      target = target.parentElement;
+    }
+    if (selected_cell !== null){
+      selected_cell.classList.remove("selected-player")
+    }
+    if (selected_cell === target){
+      selected_cell = null;
+      spec_dropdown.selectedIndex = 0;
+      return;
+    }
+    selected_cell = target;
+    selected_cell.classList.add("selected-player")
+    const [spec, spec_index] = getSpecFromClassList(selected_cell.classList);
+    console.log("Spec Index: ", spec_index);
+
+    // insert some menu thing
+    console.log(target);
+
+    spec_dropdown.selectedIndex = spec_index;
+  }
+
+  // const spec_fragment = '<div class="spec-container"> <div class="person-name">Spec Name</div> <div class="spec-image"></div> <div class="spec-type">heal/cele/power</div> </div>'
+  const spec_fragment = '<div class="spec-container"> <div class="person-name"></div> <div class="spec-image"></div> <div class="spec-type"></div> </div>'
+  function create(htmlStr) {
+    var frag = document.createDocumentFragment(),
+        temp = document.createElement('td');
+    temp.innerHTML = htmlStr;
+    while (temp.firstChild) {
+        frag.appendChild(temp.firstChild);
+    }
+    return frag;
+}
+
+
+  function getSpecFromClassList(list){
+    for (let i = 0; i < list.length; i++){
+      current_class = list[i];
+      for (j = 0; j < specs.length; j++){
+        if (current_class === specs[j]){
+          return [specs[j], j+1];
+        }
+      }
+    }
+    return ["", 0];
+
+  }
+
+  function addParty(){
+    let table = document.getElementById("comp-table");
+    let newRow = table.insertRow(-1);
+    for (let i = 0; i < 5; i++){
+      let newCell = newRow.insertCell(-1);
+      newCell.innerHTML = spec_fragment;
+    }
+  }
+
+
+  function makeShareable(){
+    let table = document.getElementById("comp-table");
+    let result = "";
+    for (let i = 0, row; row = table.rows[i]; i++) {
+      for (let j = 0, col; col = row.cells[j]; j++) {
+        let [spec, spec_index] = getSpecFromClassList(col.firstChild.classList)
+        // console.log(spec_index);
+        // col.firstChild.
+        result += String.fromCharCode(65+spec_index) + "-";
+      }
+    }
+    const url = window.location.href.split("?")[0] + "?comp=" + result;
+    document.getElementById("link-text").innerText = url;
+    console.log(url);
+  }
+
+
+  function setupPage(){
+    const queryurl = window.location.href.split("?")[1];
+    const pageparams = new URLSearchParams(queryurl);
+    if (pageparams.has("comp")){
+      console.log("Url contains comp")
+      let compstring = pageparams.get("comp");
+      fromShareable(compstring);
+    }
+    else {
+      console.log("Url contains no comp");
+      addParty();
+    }
+  }
+  function fromShareable(s) {
+    let table = document.getElementById("comp-table");
+    const entries = (s.match(/-/g) || []).length;
+    let string_entries = s.split("-");
+    let newRow = null;
+    for (let i = 0; i < entries; i++) {
+      if ((i % 5) === 0) {
+        newRow = table.insertRow(-1);
+      }
+      str = string_entries[i];
+      let newCell = newRow.insertCell(-1);
+      newCell.innerHTML = spec_fragment;
+      spec_index = str.charCodeAt(0) - 65;
+      if (spec_index === 0){
+        continue;
+      }
+      spec = specs[spec_index-1];
+      newCell.firstChild.classList.add(spec);
+    }
+  }
+
+
+// const url = window.location.href.split("?")[1];
+// const pageparams = new URLSearchParams(url);
+// console.log("Comp:");
+// console.log(pageparams.get("comp"));
+window.onload= function(){
+  document.getElementById('comp-table').onclick=getCellRow;
+}
+document.addEventListener("DOMContentLoaded", setupPage);
+
+</script>
+<!--serialization??: every cell encoded into some block of even size-->
+
+<!--make table clickable - or add listener for each cell?-->
+<!--figure out how to serialize-->
+
+
+
+
+</body>
+</html>
+
