@@ -1,0 +1,72 @@
+.guard {background: #9fc5e8;}
+.guard > .spec-image {background-image: url('images/guard.png');}
+.dh {background: #9fc5e8;}
+.dh > .spec-image {background-image: url('images/dh.png');}
+.fb {background: #9fc5e8;}
+.fb > .spec-image {background-image: url('images/fb.png');}
+.wb {background: #9fc5e8;}
+.wb > .spec-image {background-image: url('images/wb.png');}
+.rev {background: #ea9999;}
+.rev > .spec-image {background-image: url('images/rev.png');}
+.herald {background: #ea9999;}
+.herald > .spec-image {background-image: url('images/herald.png');}
+.rene {background: #ea9999;}
+.rene > .spec-image {background-image: url('images/rene.png');}
+.vindi {background: #ea9999;}
+.vindi > .spec-image {background-image: url('images/vindi.png');}
+.warr {background: #ffe599;}
+.warr > .spec-image {background-image: url('images/warr.png');}
+.bers {background: #ffe599;}
+.bers > .spec-image {background-image: url('images/bers.png');}
+.spb {background: #ffe599;}
+.spb > .spec-image {background-image: url('images/spb.png');}
+.blade {background: #ffe599;}
+.blade > .spec-image {background-image: url('images/blade.png');}
+.engi {background: #fce5cd;}
+.engi > .spec-image {background-image: url('images/engi.png');}
+.scrapper {background: #fce5cd;}
+.scrapper > .spec-image {background-image: url('images/scrapper.png');}
+.holo {background: #fce5cd;}
+.holo > .spec-image {background-image: url('images/holo.png');}
+.mech {background: #fce5cd;}
+.mech > .spec-image {background-image: url('images/mech.png');}
+.ranger {background: #b6d7a8;}
+.ranger > .spec-image {background-image: url('images/ranger.png');}
+.druid {background: #b6d7a8;}
+.druid > .spec-image {background-image: url('images/druid.png');}
+.slb {background: #b6d7a8;}
+.slb > .spec-image {background-image: url('images/slb.png');}
+.untamed {background: #b6d7a8;}
+.untamed > .spec-image {background-image: url('images/untamed.png');}
+.thief {background: #f4cccc;}
+.thief > .spec-image {background-image: url('images/thief.png');}
+.dd {background: #f4cccc;}
+.dd > .spec-image {background-image: url('images/dd.png');}
+.de {background: #f4cccc;}
+.de > .spec-image {background-image: url('images/de.png');}
+.specter {background: #f4cccc;}
+.specter > .spec-image {background-image: url('images/specter.png');}
+.ele {background: #e06666;}
+.ele > .spec-image {background-image: url('images/ele.png');}
+.tempest {background: #e06666;}
+.tempest > .spec-image {background-image: url('images/tempest.png');}
+.weaver {background: #e06666;}
+.weaver > .spec-image {background-image: url('images/weaver.png');}
+.cata {background: #e06666;}
+.cata > .spec-image {background-image: url('images/cata.png');}
+.mesmer {background: #df8bf0;}
+.mesmer > .spec-image {background-image: url('images/mesmer.png');}
+.chrono {background: #df8bf0;}
+.chrono > .spec-image {background-image: url('images/chrono.png');}
+.mirage {background: #df8bf0;}
+.mirage > .spec-image {background-image: url('images/mirage.png');}
+.virt {background: #df8bf0;}
+.virt > .spec-image {background-image: url('images/virt.png');}
+.necro {background: #93c47d;}
+.necro > .spec-image {background-image: url('images/necro.png');}
+.reaper {background: #93c47d;}
+.reaper > .spec-image {background-image: url('images/reaper.png');}
+.scg {background: #93c47d;}
+.scg > .spec-image {background-image: url('images/scg.png');}
+.harb {background: #93c47d;}
+.harb > .spec-image {background-image: url('images/harb.png');}
